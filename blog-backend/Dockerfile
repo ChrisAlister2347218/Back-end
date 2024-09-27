@@ -1,6 +1,9 @@
-# Stage 1: Build the application using Maven image
-FROM maven:3.8.5-eclipse-temurin-22 AS build
+# Stage 1: Build the application
+FROM eclipse-temurin:22-jdk AS build
 WORKDIR /app
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven
 
 # Copy the project files
 COPY blog-backend/pom.xml .
