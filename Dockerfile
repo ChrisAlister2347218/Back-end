@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.1-openjdk-11 AS build
+FROM eclipse-temurin:22-jdk AS build
 WORKDIR /app
 COPY blog-backend/pom.xml .
 COPY blog-backend/src ./src
