@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.6-openjdk-17 AS build  
+FROM maven:3.8.6-openjdk-17-slim AS build  
 WORKDIR /app
 
 # Copy the project files
@@ -10,7 +10,7 @@ COPY blog-backend/src ./src
 RUN mvn clean install -DskipTests
 
 # Stage 2: Create a lightweight image for the application
-FROM openjdk:17-jdk-slim 
+FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copy the jar file from the build stage
